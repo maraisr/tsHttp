@@ -1,13 +1,13 @@
 {
-	"name": "tsHttp",
-	"scripts": {
-		"clean": "rimraf tmp dist",
-		"build": "npm run clean && tsc && rollup -c=rollup.config.js"
-	},
-	"devDependencies": {
-		"babel-preset-es2015-rollup": "^1.1.1",
-		"rimraf": "^2.5.2",
-		"rollup": "^0.25.4",
-		"rollup-plugin-babel": "^2.3.9"
-	}
+  "name": "tsHttp",
+  "scripts": {
+    "clean": "rimraf tmp dist/*",
+    "build": "npm run clean && tsc && rollup -c=rollup.config.js && uglifyjs dist/http.js -c -m -o dist/http.min.js --stats"
+  },
+  "devDependencies": {
+    "babel-preset-es2015-rollup": "^1.1.1",
+    "rimraf": "^2.5.2",
+    "rollup-plugin-babel": "^2.3.9",
+    "uglify-js": "^2.6.1"
+  }
 }
