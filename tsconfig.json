@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"module": "es2015",
+		"target": "es2015",
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"noImplicitAny": true,
+		"removeComments": true,
+		"sourceMap": true,
+		"outDir": "tmp/"
+	},
+	"files": [
+		"src/HTTP.ts"
+	]
+}
