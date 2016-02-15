@@ -74,10 +74,8 @@ export module HTTP {
 			this.statusCode = r.status;
 
 			try {
-				if (r.getResponseHeader('Content-Type') == 'application/json') {
-					this.isJson = true;
-					this.json = JSON.parse(this.response);
-				}
+				this.isJson = true;
+				this.json = JSON.parse(this.response);
 			} catch (e) {
 			}
 		}
