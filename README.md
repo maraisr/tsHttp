@@ -2,9 +2,16 @@ JavaScript Object Oriented XHR Library
 ======================================
 JavaScript XHR micro library written in [TypeScript](https://github.com/Microsoft/TypeScript)
 
+[![npm version](https://badge.fury.io/js/tshttp.svg)](https://badge.fury.io/js/tshttp)
 
-## Usage (node)
-At the moment I'm using [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) and for Node to work you need to `npm i XMLHttpRequest`.
+#### Install with npm
+```sh
+npm i tshttp --save
+```
+
+## Example Usage (node)
+At the moment I'm using [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) and for Node to work you need to `npm i XMLHttpRequest`. And add `XMLHttpRequest = (require('XMLHttpRequest')).XMLHttpRequest;` before the require.
+
 ```JavaScript
 XMLHttpRequest = (require('XMLHttpRequest')).XMLHttpRequest;
 
@@ -16,7 +23,6 @@ r.get('some/sexy/endpoint', {with: optional: ['query', 'strings']}).then(functio
 	console.log(response.json);
 });
 ```
-
 
 ## Usage (umd)
 ```JavaScript
@@ -33,19 +39,12 @@ require(['tsHttp'], function(http) {
 
 ## Building
 
-### Setup
-```Bash
-npm i -g tsc
-npm i -g rollup
-npm i
-```
-### Build
-```Bash
-npm run build
-```
+To build:
+- `npm i -g tsc`
+- `npm i -g rollup`
+- `npm i`
+- `npm run watch` or `npm run dev`
 
-### Development
-```Bash
-npm run dev // For dev build
-npm run watch // For watching & then also building
-```
+`npm run watch` will clean the tmp and dev folders, build the dev version (`npm run dev`), and start watching. This file contains inline sourcemaps (what Rollup produce).
+
+For a release: `npm run build` - which will minify, and run other optimization tasks over the file. This does not include source maps.
