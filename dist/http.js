@@ -1,7 +1,7 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
     typeof define === 'function' && define.amd ? define(['exports'], factory) :
-    (factory((global.HTTP = global.HTTP || {})));
+    (factory((global.tsHttp = global.tsHttp || {})));
 }(this, function (exports) { 'use strict';
 
     var babelHelpers = {};
@@ -12,15 +12,45 @@
       }
     };
 
+    babelHelpers.createClass = function () {
+      function defineProperties(target, props) {
+        for (var i = 0; i < props.length; i++) {
+          var descriptor = props[i];
+          descriptor.enumerable = descriptor.enumerable || false;
+          descriptor.configurable = true;
+          if ("value" in descriptor) descriptor.writable = true;
+          Object.defineProperty(target, descriptor.key, descriptor);
+        }
+      }
+
+      return function (Constructor, protoProps, staticProps) {
+        if (protoProps) defineProperties(Constructor.prototype, protoProps);
+        if (staticProps) defineProperties(Constructor, staticProps);
+        return Constructor;
+      };
+    }();
+
     babelHelpers;
 
     exports.HTTP;
     (function (HTTP) {
-        var Get = function Get() {
-            babelHelpers.classCallCheck(this, Get);
-        };
+        var Req = function () {
+            function Req(base) {
+                babelHelpers.classCallCheck(this, Req);
 
-        HTTP.Get = Get;
+                this.base = base;
+            }
+
+            babelHelpers.createClass(Req, [{
+                key: "Get",
+                value: function Get(ep) {
+                    return this.base + ep;
+                }
+            }]);
+            return Req;
+        }();
+
+        HTTP.Req = Req;
     })(exports.HTTP || (exports.HTTP = {}));
 
 }));

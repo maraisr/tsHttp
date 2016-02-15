@@ -5,5 +5,5 @@ export default {
 	dest: 'dist/http.js',
 	plugins: [babel()],
 	format: 'umd',
-	moduleName: 'HTTP'
+	moduleName: 'tsHttp'
 };
