@@ -8,9 +8,13 @@ export module HTTP {
 			this.r = new XMLHttpRequest();
 		}
 
-		public get(ep:string):Promise<Response> {
+		static buildQuery(base:string, ep:string, params:Object):string {
+			return base.replace(/\/+$/, '')+'/'+ep.replace(/^\/+/, '');
+		}
+
+		public get(ep:string, params:Object = void {}):Promise<Response> {
 			return new Promise((resolve) => {
-				this.r.open('GET', this.base+ep, true);
+				this.r.open('GET', Req.buildQuery(this.base, ep, params), true);
 				this.r.setRequestHeader('Accept', 'application/json');
 				this.r.send(null);
 
