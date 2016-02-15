@@ -15,6 +15,34 @@ $ npm i tshttp --save
 $ bower i tshttp --save
 ```
 
+## Example Usage (umd)
+```JavaScript
+require(['tsHttp'], function(http) {
+	var HTTP = http.HTTP;
+
+	var c = new HTTP.Client('https://my-cool-api.io/');
+
+	c.get('some/sexy/endpoint', {with: optional: ['query', 'strings']}).then(function(response) {
+		console.log(response.json);
+	});
+
+	var p = new HTTP.Pool(r, [
+		(new HTTP.Request('GET', {ep: 'some'})),
+		(new HTTP.Request('GET', {ep: 'array'})),
+		(new HTTP.Request('GET', {ep: 'of'})),
+		(new HTTP.Request('GET', {ep: 'batched'})),
+		(new HTTP.Request('GET', {ep: 'requests'}))
+	]);
+
+	p.send().then(function(promises) {
+		console.log(promises);
+		/*
+		The promises array contains and array of Response objects
+		*/
+	});
+})
+```
+
 ## Example Usage (node)
 At the moment I'm using [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) and for Node to work you need to `npm i XMLHttpRequest`. And add `XMLHttpRequest = (require('XMLHttpRequest')).XMLHttpRequest;` before the require.
 
@@ -23,24 +51,11 @@ XMLHttpRequest = (require('XMLHttpRequest')).XMLHttpRequest;
 
 var HTTP = (require('tsHttp')).HTTP;
 
-var r = new HTTP.Client('https://my-cool-api.io/');
+var c = new HTTP.Client('https://my-cool-api.io/');
 
-r.get('some/sexy/endpoint', {with: optional: ['query', 'strings']}).then(function(response) {
+c.get('some/sexy/endpoint', {with: optional: ['query', 'strings']}).then(function(response) {
 	console.log(response.json);
 });
-```
-
-## Usage (umd)
-```JavaScript
-require(['tsHttp'], function(http) {
-	var HTTP = http.HTTP;
-
-	var r = new HTTP.Client('https://my-cool-api.io/');
-
-	r.get('some/sexy/endpoint', {with: optional: ['query', 'strings']}).then(function(response) {
-		console.log(response.json);
-	});
-})
 ```
 
 ## Building

@@ -95,8 +95,10 @@ export module HTTP {
 			this.requests = requests;
 		}
 
-		send(interval:number = -1):void  {
-
+		send():Promise<Response[]> {
+			return Promise.all(this.requests.map((v:Request) => {
+				return v.send();
+			}));
 		}
 	}
 }
