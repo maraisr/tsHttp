@@ -1,18 +1,18 @@
 export module HTTP {
-	export class Client {
-		private base:string;
+	var base:string;
 
-		constructor(base:string) {
-			this.base = base;
+	export class Client {
+		constructor(nBase:string) {
+			base = nBase;
 		}
 
 		public get(ep:string, params:Object = void {}):Promise<Response> {
-			return (new Request('GET', {base: this.base, ep: ep, params:params})).send();
+			return (new Request('GET', {base: base, ep: ep, params:params})).send();
 		}
 	}
 
 	interface RequestConfig {
-		base: string;
+		base?: string;
 		ep: string;
 		params?: Object;
 	}
@@ -25,6 +25,11 @@ export module HTTP {
 		constructor(method:string, url:RequestConfig) {
 			this.method = method;
 			this.url = url;
+
+			if (this.url.base == void 0 && base != void 0) {
+				this.url.base = base;
+			}
+
 			this.r = new XMLHttpRequest();
 		}
 
@@ -78,6 +83,20 @@ export module HTTP {
 				this.json = JSON.parse(this.response);
 			} catch (e) {
 			}
+		}
+	}
+
+	export class Pool {
+		client:Client;
+		requests:Array<Request>;
+
+		constructor(client:Client, requests:Array<Request>) {
+			this.client = client;
+			this.requests = requests;
+		}
+
+		send(interval:number = -1):void  {
+
 		}
 	}
 }
