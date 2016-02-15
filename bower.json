@@ -1,0 +1,30 @@
+{
+	"name": "tshttp",
+	"description": "JavaScript Object Oriented XHR Library",
+	"main": "dist/tsHttp.min.js",
+	"authors": [
+		"Marais Rossouw"
+	],
+	"license": "MIT",
+	"keywords": [
+		"xhr",
+		"ajax",
+		"micro",
+		"typescript",
+		"object",
+		"oriented"
+	],
+	"homepage": "https://github.com/maraisr/tsHttp",
+	"moduleType": [
+		"amd",
+		"globals",
+		"node"
+	],
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	]
+}
