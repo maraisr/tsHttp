@@ -8,8 +8,23 @@ export module HTTP {
 			this.r = new XMLHttpRequest();
 		}
 
+		static enParam(params:Object, prefix:string=''):string {
+			var r:Array<any> = new Array();
+
+			for(var p in params) {
+				var k:string = ((prefix != '') ? (prefix+ '['+p+']') : p),
+					v:any = params[p];
+
+					if (!(v == null || typeof v == void 0)) {
+						r.push((typeof v == 'object') ? Req.enParam(v, k) : encodeURIComponent(k) + '=' + encodeURIComponent(v));
+					}
+			}
+
+			return r.join('&');
+		}
+
 		static buildQuery(base:string, ep:string, params:Object):string {
-			return base.replace(/\/+$/, '')+'/'+ep.replace(/^\/+/, '');
+			return base.replace(/\/+$/, '')+'/'+ep.replace(/^\/+/, '')+(params == void {} ? '' : '?'+Req.enParam(params));
 		}
 
 		public get(ep:string, params:Object = void {}):Promise<Response> {
