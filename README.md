@@ -10,7 +10,7 @@ XMLHttpRequest = (require('XMLHttpRequest')).XMLHttpRequest;
 
 var HTTP = (require('tsHttp')).HTTP;
 
-var r = new HTTP.Req('https://my-cool-api.io/');
+var r = new HTTP.Client('https://my-cool-api.io/');
 
 r.get('some/sexy/endpoint', {with: optional: ['query', 'strings']}).then(function(response) {
 	console.log(response.payload);
@@ -23,7 +23,7 @@ r.get('some/sexy/endpoint', {with: optional: ['query', 'strings']}).then(functio
 require(['tsHttp'], function(http) {
 	var HTTP = http.HTTP;
 
-	var r = new HTTP.Req('https://my-cool-api.io/');
+	var r = new HTTP.Client('https://my-cool-api.io/');
 
 	r.get('some/sexy/endpoint', {with: optional: ['query', 'strings']}).then(function(response) {
 		console.log(response.payload);

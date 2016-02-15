@@ -1,10 +1,30 @@
 export module HTTP {
-	export class Req {
+	export class Client {
 		private base:string;
-		private r:XMLHttpRequest;
 
 		constructor(base:string) {
 			this.base = base;
+		}
+
+		public get(ep:string, params:Object = void {}):Promise<Response> {
+			return (new Request('GET', {base: this.base, ep: ep, params:params})).send();
+		}
+	}
+
+	interface RequestConfig {
+		base: string;
+		ep: string;
+		params?: Object;
+	}
+
+	export class Request {
+		private r:XMLHttpRequest;
+		private url:RequestConfig;
+		method:string;
+
+		constructor(method:string, url:RequestConfig) {
+			this.method = method;
+			this.url = url;
 			this.r = new XMLHttpRequest();
 		}
 
@@ -16,7 +36,7 @@ export module HTTP {
 					v:any = params[p];
 
 					if (!(v == null || typeof v == void 0)) {
-						r.push((typeof v == 'object') ? Req.enParam(v, k) : encodeURIComponent(k) + '=' + encodeURIComponent(v));
+						r.push((typeof v == 'object') ? Request.enParam(v, k) : encodeURIComponent(k) + '=' + encodeURIComponent(v));
 					}
 			}
 
@@ -24,12 +44,12 @@ export module HTTP {
 		}
 
 		static buildQuery(base:string, ep:string, params:Object):string {
-			return base.replace(/\/+$/, '')+'/'+ep.replace(/^\/+/, '')+(params == void {} ? '' : '?'+Req.enParam(params));
+			return base.replace(/\/+$/, '')+'/'+ep.replace(/^\/+/, '')+(params == void {} ? '' : '?'+Request.enParam(params));
 		}
 
-		public get(ep:string, params:Object = void {}):Promise<Response> {
-			return new Promise((resolve) => {
-				this.r.open('GET', Req.buildQuery(this.base, ep, params), true);
+		send():Promise<Response> {
+			return new Promise((resolve, reject) => {
+				this.r.open('GET', Request.buildQuery(this.url.base, this.url.ep, this.url.params), true);
 				this.r.setRequestHeader('Accept', 'application/json');
 				this.r.send(null);
 
@@ -38,30 +58,28 @@ export module HTTP {
 						resolve(new Response(this.r));
 					}
 				});
-			});
+			})
 		}
 	}
 
 	class Response {
 		private response:any;
 		private isJson:boolean = false;
+		json:Object = void 0;
+		statusCode:number;
 
 		constructor(r:XMLHttpRequest) {
 			this.response = r.responseText;
 
+			this.statusCode = r.status;
+
 			try {
 				if (r.getResponseHeader('Content-Type') == 'application/json') {
 					this.isJson = true;
+					this.json = JSON.parse(this.response);
 				}
-			} catch (e) {}
-		}
-
-		get payload():any {
-			if (this.isJson) {
-				return JSON.parse(this.response);
+			} catch (e) {
 			}
-
-			return this.response;
 		}
 	}
 }
