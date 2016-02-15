@@ -49,7 +49,7 @@ export module HTTP {
 
 		send():Promise<Response> {
 			return new Promise((resolve, reject) => {
-				this.r.open('GET', Request.buildQuery(this.url.base, this.url.ep, this.url.params), true);
+				this.r.open(this.method, Request.buildQuery(this.url.base, this.url.ep, this.url.params), true);
 				this.r.setRequestHeader('Accept', 'application/json');
 				this.r.send(null);
 
