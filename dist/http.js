@@ -44,13 +44,19 @@
             babelHelpers.createClass(Req, [{
                 key: "Get",
                 value: function Get(ep) {
-                    return this.base + ep;
+                    return new Promise(function (resolve) {
+                        resolve(new Response());
+                    });
                 }
             }]);
             return Req;
         }();
 
         HTTP.Req = Req;
+
+        var Response = function Response() {
+            babelHelpers.classCallCheck(this, Response);
+        };
     })(exports.HTTP || (exports.HTTP = {}));
 
 }));

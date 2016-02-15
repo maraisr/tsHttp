@@ -6,8 +6,14 @@ export module HTTP {
 			this.base = base;
 		}
 
-		public Get(ep:string) {
-			return this.base+ep;
+		public Get(ep:string):Promise<Response> {
+			return new Promise((resolve) => {
+				resolve(new Response());
+			});
 		}
+	}
+
+	class Response {
+
 	}
 }
