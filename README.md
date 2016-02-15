@@ -13,7 +13,7 @@ var HTTP = (require('tsHttp')).HTTP;
 var r = new HTTP.Client('https://my-cool-api.io/');
 
 r.get('some/sexy/endpoint', {with: optional: ['query', 'strings']}).then(function(response) {
-	console.log(response.payload);
+	console.log(response.json);
 });
 ```
 
@@ -26,7 +26,7 @@ require(['tsHttp'], function(http) {
 	var r = new HTTP.Client('https://my-cool-api.io/');
 
 	r.get('some/sexy/endpoint', {with: optional: ['query', 'strings']}).then(function(response) {
-		console.log(response.payload);
+		console.log(response.json);
 	});
 })
 ```
