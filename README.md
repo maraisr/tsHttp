@@ -8,7 +8,7 @@ Object Oriented XHR Library
 	<a href="https://github.com/maraisr/tsHttp">
 		<img src="https://img.shields.io/bower/v/tshttp.svg" alt="bower version">
 	</a>
-	<a href="https://github.com/rollup/rollup/blob/master/LICENSE.md">
+	<a href="https://github.com/maraisr/tsHttp/blob/master/LICENSE.md">
 		<img src="https://img.shields.io/npm/l/tshttp.svg" alt="license">
 	</a>
 </p>
