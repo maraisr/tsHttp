@@ -2,8 +2,17 @@ JavaScript Object Oriented XHR Library
 ======================================
 JavaScript XHR micro library written in [TypeScript](https://github.com/Microsoft/TypeScript)
 
-[![npm version](https://badge.fury.io/js/tshttp.svg)](https://badge.fury.io/js/tshttp)
-[![Bower version](https://badge.fury.io/bo/tshttp.svg)](https://badge.fury.io/bo/tshttp)
+<p align="center">
+	<a href="https://www.npmjs.com/package/tshttp">
+		<img src="https://img.shields.io/npm/v/tshttp.svg" alt="npm version">
+	</a>
+	<a href="https://github.com/maraisr/tsHttp">
+		<img src="https://img.shields.io/bower/v/tshttp.svg" alt="bower version">
+	</a>
+	<a href="https://github.com/rollup/rollup/blob/master/LICENSE.md">
+		<img src="https://img.shields.io/npm/l/tshttp.svg" alt="license">
+	</a>
+</p>
 
 #### Install with [npm](https://www.npmjs.com/)
 ```sh
