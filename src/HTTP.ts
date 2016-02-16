@@ -96,7 +96,7 @@ export module HTTP {
         }
 
         send(cb:(response:Response, index:number) =>  any):void {
-            for (var i:number = 0; i < this.requests.length; i++) {
+            for (let i:number = 0; i < this.requests.length; i++) {
                 this.requests[i].send().then((response:Response) => {
                     cb(response, i);
                 });
