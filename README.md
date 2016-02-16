@@ -1,6 +1,5 @@
-JavaScript Object Oriented XHR Library
-======================================
-JavaScript XHR micro library written in [TypeScript](https://github.com/Microsoft/TypeScript)
+Object Oriented XHR Library
+===========================
 
 <p align="center">
 	<a href="https://www.npmjs.com/package/tshttp">
@@ -13,6 +12,8 @@ JavaScript XHR micro library written in [TypeScript](https://github.com/Microsof
 		<img src="https://img.shields.io/npm/l/tshttp.svg" alt="license">
 	</a>
 </p>
+
+> JavaScript XHR micro library written in [TypeScript](https://github.com/Microsoft/TypeScript)
 
 #### Install with [npm](https://www.npmjs.com/)
 ```sh
