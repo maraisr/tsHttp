@@ -32,11 +32,11 @@ require(['tsHttp'], function(http) {
 
 	var c = new HTTP.Client('https://my-cool-api.io/');
 
-	c.get('some/sexy/endpoint', {with: optional: ['query', 'strings']}).then(function(response) {
+	c.get('some/sexy/endpoint', {with: {optional: ['query', 'strings']}}).then(function(response) {
 		console.log(response.json);
 	});
 
-	var p = new HTTP.Pool(r, [
+	var p = new HTTP.Pool(c, [
 		(new HTTP.Request('GET', {ep: 'some'})),
 		(new HTTP.Request('GET', {ep: 'array'})),
 		(new HTTP.Request('GET', {ep: 'of'})),
@@ -63,7 +63,7 @@ var HTTP = (require('tsHttp')).HTTP;
 
 var c = new HTTP.Client('https://my-cool-api.io/');
 
-c.get('some/sexy/endpoint', {with: optional: ['query', 'strings']}).then(function(response) {
+c.get('some/sexy/endpoint', {with: {optional: ['query', 'strings']}}).then(function(response) {
 	console.log(response.json);
 });
 ```
