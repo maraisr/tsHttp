@@ -1,9 +1,15 @@
 export module HTTP {
-    var base:string;
+    var base:string,
+		_config:ClientConfig;
+
+	interface ClientConfig {
+		params?:Object;
+	}
 
     export class Client {
-        constructor(nBase:string) {
+        constructor(nBase:string, config?:ClientConfig) {
             base = nBase;
+			_config = config;
         }
 
         public get(ep:string, params:Object = void {}):Promise<Response> {
