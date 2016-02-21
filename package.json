@@ -1,39 +1,39 @@
 {
-	"name": "tshttp",
-	"version": "0.1.5",
-	"description": "JavaScript Object Oriented XHR Library",
-	"main": "dist/tsHttp.min.js",
-	"dependencies": {},
-	"devDependencies": {
-		"babel-preset-es2015-rollup": "^1.1.1",
-		"babel-preset-stage-3": "^6.5.0",
-		"rimraf": "^2.5.2",
-		"rollup-plugin-babel": "^2.3.9",
-		"uglify-js": "^2.6.1",
-		"watch": "^0.17.1"
-	},
-	"scripts": {
-		"clean": "rimraf tmp dist/*",
-		"dev": "tsc && rollup -c=rollup.config.js",
-		"watch": "watch 'npm run dev' src",
-		"build": "npm run clean && tsc && rollup -c=rollup.config.js && uglifyjs dist/tsHttp.js -c -m -o dist/tsHttp.min.js --stats",
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/maraisr/tsHttp.git"
-	},
-	"keywords": [
-		"xhr",
-		"ajax",
-		"micro",
-		"typescript",
-		"object oriented"
-	],
-	"author": "Marais Rossouw",
-	"license": "GPL-2.0",
-	"bugs": {
-		"url": "https://github.com/maraisr/tsHttp/issues"
-	},
-	"homepage": "https://github.com/maraisr/tsHttp#readme"
+  "name": "tshttp",
+  "version": "0.1.6",
+  "description": "JavaScript Object Oriented XHR Library",
+  "main": "dist/tsHttp.min.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-preset-es2015-rollup": "^1.1.1",
+    "babel-preset-stage-3": "^6.5.0",
+    "rimraf": "^2.5.2",
+    "rollup-plugin-babel": "^2.3.9",
+    "uglify-js": "^2.6.1",
+    "watch": "^0.17.1"
+  },
+  "scripts": {
+    "clean": "rimraf tmp dist/*",
+    "dev": "tsc && rollup -c=rollup.config.js",
+    "watch": "watch 'npm run dev' src",
+    "build": "npm run clean && tsc && rollup -c=rollup.config.js && uglifyjs dist/tsHttp.js -c -m -o dist/tsHttp.min.js --stats",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maraisr/tsHttp.git"
+  },
+  "keywords": [
+    "xhr",
+    "ajax",
+    "micro",
+    "typescript",
+    "object oriented"
+  ],
+  "author": "Marais Rossouw",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/maraisr/tsHttp/issues"
+  },
+  "homepage": "https://github.com/maraisr/tsHttp#readme"
 }
