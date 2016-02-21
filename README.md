@@ -37,17 +37,17 @@ require(['tsHttp'], function(http) {
 	});
 
 	var p = new HTTP.Pool(c, [
-		(new HTTP.Request('GET', {ep: 'some'})),
-		(new HTTP.Request('GET', {ep: 'array'})),
-		(new HTTP.Request('GET', {ep: 'of'})),
-		(new HTTP.Request('GET', {ep: 'batched'})),
-		(new HTTP.Request('GET', {ep: 'requests'}))
+		(new HTTP.Request(HTTP.GET, {ep: 'some'})),
+		(new HTTP.Request(HTTP.GET, {ep: 'array'})),
+		(new HTTP.Request(HTTP.GET, {ep: 'of'})),
+		(new HTTP.Request(HTTP.GET, {ep: 'batched'})),
+		(new HTTP.Request(HTTP.GET, {ep: 'requests'}))
 	]);
 
-	p.send().then(function(promises) {
-		console.log(promises);
+	p.send().then(function(response, index) {
+		console.log(response, index);
 		/*
-		The promises array contains and array of Response objects
+		Argument 1 is the repsonse object, and index is the index of the pool array.
 		*/
 	});
 })
