@@ -1,21 +1,26 @@
 export module HTTP {
     var base: string,
-		_config: ClientConfig;
+        _config: ClientConfig;
 
-	export const GET = 'GET';
+    export const GET = 'GET';
+    export const POST = 'POST';
 
-	interface ClientConfig {
-		params?: Object;
-	}
+    interface ClientConfig {
+        params?: Object;
+    }
 
     export class Client {
         constructor(nBase: string, config?: ClientConfig) {
             base = nBase;
-			_config = config;
+            _config = config;
         }
 
         public get(ep: string, params: Object = void {}): Promise<Response> {
             return (new Request(HTTP.GET, { base: base, ep: ep, params: params })).send();
+        }
+
+        public post(ep: string, params: Object = void {}, payload:Object): Promise<Response> {
+            return (new Request(HTTP.POST, { base: base, ep: ep, params: params }, payload)).send();
         }
     }
 
@@ -30,7 +35,7 @@ export module HTTP {
         private url: RequestConfig;
         method: string;
 
-        constructor(method: string, url: RequestConfig) {
+        constructor(method: string, url: RequestConfig, payload?:Object) {
             this.method = method;
             this.url = url;
 
