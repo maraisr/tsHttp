@@ -1,28 +1,21 @@
 Object Oriented XHR Library
 ===========================
 
-<p align="center">
-	<a href="https://www.npmjs.com/package/tshttp">
-		<img src="https://img.shields.io/npm/v/tshttp.svg" alt="npm version">
-	</a>
-	<a href="https://github.com/maraisr/tsHttp">
-		<img src="https://img.shields.io/bower/v/tshttp.svg" alt="bower version">
-	</a>
-	<a href="https://github.com/maraisr/tsHttp/blob/master/LICENSE.md">
-		<img src="https://img.shields.io/npm/l/tshttp.svg" alt="license">
-	</a>
-</p>
+[![NPM version][npm-image]][npm-url]
+[![Bower version][bower-image]][bower-url]
+[![License][license-image]][license-url]
 
 > JavaScript XHR micro library written in [TypeScript](https://github.com/Microsoft/TypeScript)
 
-#### Install with [npm](https://www.npmjs.com/)
+## Installation
+Install tsHttp using [npm](https://docs.npmjs.com/):
 ```sh
-$ npm i tshttp --save
+npm i tshttp --save
 ```
 
-#### Install with [bower](http://bower.io/)
+Install tsHttp using [bower](http://bower.io/#getting-started):
 ```sh
-$ bower i tshttp --save
+bower i tshttp --save
 ```
 
 ## Example Usage (umd)
@@ -79,3 +72,10 @@ To build:
 `npm run watch` will clean the tmp and dev folders, build the dev version (`npm run dev`), and start watching. This file contains inline sourcemaps (what Rollup produce).
 
 For a release: `npm run build` - which will minify, and run other optimization tasks over the file. This does not include source maps.
+
+[npm-image]: https://img.shields.io/npm/v/tshttp.svg?style=flat-square
+[npm-url]: https://www.npmjs.com/package/tshttp
+[bower-image]: https://img.shields.io/bower/v/tshttp.svg?style=flat-square
+[bower-url]: https://github.com/maraisr/tsHttp
+[license-image]: https://img.shields.io/npm/l/tshttp.svg?style=flat-square
+[license-url]: https://github.com/maraisr/tsHttp/blob/master/LICENSE.md
